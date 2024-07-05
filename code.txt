@@ -1,0 +1,10 @@
+{ NL
+    i = 1 NL
+    j = 2 NL
+    i = 4 NL
+    { NL
+        i = 2 NL
+        k = 3 NL
+        print(i) NL
+    } NL
+} NL

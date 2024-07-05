@@ -1,0 +1,23 @@
+prog -> type main ( arguments ) { stmts }
+type -> int | char | string
+stmts -> stmt stmts | stmt
+stmt -> assignmentStmt | returnStmt | conditionalStmt | getStmt | putStmt | { stmts }
+returnStmt -> return expr ;
+assignmentStmt -> type id = expr ; | id = expr ;
+conditionalStmt -> id = conditionalStmt | expr ? expr : expr ;
+getStmt -> get id ;
+putStmt -> put expr ;
+argument -> type id
+arguments -> argument , arguments | argument | EPSILON
+arithop -> + | - | *
+relop -> < | > | ==
+expr -> term expr'
+expr' -> relop term expr' | EPSILON
+term -> factor term'
+term' -> arithop factor term' | EPSILON
+factor -> id | integer_constant | char_constant | string_constant | ( expr )
+
+ string b = "hello";
+    char c = 'a';
+    (a == 2) ? a*5 : a*6;
+    a = (a < 2) ? 5 : 2;

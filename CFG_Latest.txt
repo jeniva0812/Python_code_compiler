@@ -1,0 +1,19 @@
+prog -> { NL stmts } NL
+type -> int | float | set
+stmts -> stmt NL stmts | stmt NL
+stmt -> assignmentStmt | returnStmt | conditionalStmt | getStmt | putStmt | expression | { NL stmts } | printStmt
+printStmt -> print ( factor )
+returnStmt -> return expr 
+assignmentStmt -> id = expr | id = id
+conditionalStmt -> id = conditionalStmt | expr ? expr : expr
+getStmt -> get id
+putStmt -> put expr
+argument -> type id
+arguments -> argument , arguments | argument | EPSILON
+arithop -> + | - | *
+relop -> < | > | ==
+expr -> term expr' | type ( expr )
+expr' -> relop term expr' | EPSILON
+term -> factor term'
+term' -> arithop factor term' | EPSILON
+factor -> id | integer_constant | char_constant | string_constant | ( expr )
